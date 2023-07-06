@@ -1,4 +1,4 @@
-function memoize(func) {
+function memoize(func: Function) {
     const cache = {};
 
     return function (...args) {
@@ -16,9 +16,13 @@ function memoize(func) {
 }
 
 
-function add(x, y) {
-    return x + y;
+function add(x: number, y: number) {
+    if (x && y) {
+        return x + y;
+    }
 }
 
 // Create a memoized version of the 'add' function
 const memoizedAdd = memoize(add);
+console.log(memoizedAdd(3, 4));
+console.log(memoizedAdd(3, 5));
